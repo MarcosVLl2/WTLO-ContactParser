@@ -1,0 +1,12 @@
+D:\WillToLive-DataParser\ContactParserAPI\bin\Debug\net6.0\ContactParserAPI.deps.json
+D:\WillToLive-DataParser\ContactParserAPI\bin\Debug\net6.0\ContactParserAPI.dll
+D:\WillToLive-DataParser\ContactParserAPI\bin\Debug\net6.0\ContactParserAPI.pdb
+D:\WillToLive-DataParser\ContactParserAPI\obj\Debug\net6.0\ContactParserAPI.csproj.AssemblyReference.cache
+D:\WillToLive-DataParser\ContactParserAPI\obj\Debug\net6.0\ContactParserAPI.GeneratedMSBuildEditorConfig.editorconfig
+D:\WillToLive-DataParser\ContactParserAPI\obj\Debug\net6.0\ContactParserAPI.AssemblyInfoInputs.cache
+D:\WillToLive-DataParser\ContactParserAPI\obj\Debug\net6.0\ContactParserAPI.AssemblyInfo.cs
+D:\WillToLive-DataParser\ContactParserAPI\obj\Debug\net6.0\ContactParserAPI.csproj.CoreCompileInputs.cache
+D:\WillToLive-DataParser\ContactParserAPI\obj\Debug\net6.0\ContactParserAPI.dll
+D:\WillToLive-DataParser\ContactParserAPI\obj\Debug\net6.0\refint\ContactParserAPI.dll
+D:\WillToLive-DataParser\ContactParserAPI\obj\Debug\net6.0\ContactParserAPI.pdb
+D:\WillToLive-DataParser\ContactParserAPI\obj\Debug\net6.0\ref\ContactParserAPI.dll
