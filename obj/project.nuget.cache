@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "B5M1NXOKedu1eV9uWN2thIztvJO/ow9LtDd2hsgcRcSZPdGs/brFkstzSVArcM94EnQ/1SWoVl2C6htKID3YLw==",
+  "dgSpecHash": "k2zNeVpCU6eG0klfGQIXOmQf1vFeGmb1C2+nFM44P2GzmnCk9mIH18un3gZsiKv5uEmeXGXwuog+7TuKMsbdHQ==",
   "success": true,
-  "projectFilePath": "D:\\WillToLive-DataParser\\WillToLive-DataParser.csproj",
+  "projectFilePath": "D:\\WTLO-ContactParser\\WillToLive-DataParser.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marcos\\.nuget\\packages\\csvhelper\\27.2.1\\csvhelper.27.2.1.nupkg.sha512"
   ],

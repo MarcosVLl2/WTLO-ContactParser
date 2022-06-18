@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yYCUDlLZWiduzt4Pgt/RVAZkXTVXcEiM8bA5sCQsD11adm2PUDifZewR1aq4B+lg+eqxYbny3k46hPNnqpKkjw==",
+  "dgSpecHash": "DNiciEotQB54KVMfP81opCxiEW1BUTlFGb14f7rq50U5/RVnJzQb3mK+CTvPqxP2T7meVXa40O5y1Sn2BIc9pA==",
   "success": true,
-  "projectFilePath": "D:\\WillToLive-DataParser\\ContactParserAPI\\ContactParserAPI.csproj",
+  "projectFilePath": "D:\\WTLO-ContactParser\\ContactParserAPI\\ContactParserAPI.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

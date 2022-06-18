@@ -1,0 +1,12 @@
+D:\WTLO-ContactParser\ContactParserAPI\bin\Release\net6.0\ContactParserAPI.deps.json
+D:\WTLO-ContactParser\ContactParserAPI\bin\Release\net6.0\ContactParserAPI.dll
+D:\WTLO-ContactParser\ContactParserAPI\bin\Release\net6.0\ContactParserAPI.pdb
+D:\WTLO-ContactParser\ContactParserAPI\obj\Release\net6.0\ContactParserAPI.csproj.AssemblyReference.cache
+D:\WTLO-ContactParser\ContactParserAPI\obj\Release\net6.0\ContactParserAPI.GeneratedMSBuildEditorConfig.editorconfig
+D:\WTLO-ContactParser\ContactParserAPI\obj\Release\net6.0\ContactParserAPI.AssemblyInfoInputs.cache
+D:\WTLO-ContactParser\ContactParserAPI\obj\Release\net6.0\ContactParserAPI.AssemblyInfo.cs
+D:\WTLO-ContactParser\ContactParserAPI\obj\Release\net6.0\ContactParserAPI.csproj.CoreCompileInputs.cache
+D:\WTLO-ContactParser\ContactParserAPI\obj\Release\net6.0\ContactParserAPI.dll
+D:\WTLO-ContactParser\ContactParserAPI\obj\Release\net6.0\refint\ContactParserAPI.dll
+D:\WTLO-ContactParser\ContactParserAPI\obj\Release\net6.0\ContactParserAPI.pdb
+D:\WTLO-ContactParser\ContactParserAPI\obj\Release\net6.0\ref\ContactParserAPI.dll

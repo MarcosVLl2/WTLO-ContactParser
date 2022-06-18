@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WillToLive-DataParser\\ContactParserAPI\\ContactParserAPI.csproj": {}
+    "D:\\WTLO-ContactParser\\ContactParserAPI\\ContactParserAPI.csproj": {}
   },
   "projects": {
-    "D:\\WillToLive-DataParser\\ContactParserAPI\\ContactParserAPI.csproj": {
+    "D:\\WTLO-ContactParser\\ContactParserAPI\\ContactParserAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WillToLive-DataParser\\ContactParserAPI\\ContactParserAPI.csproj",
+        "projectUniqueName": "D:\\WTLO-ContactParser\\ContactParserAPI\\ContactParserAPI.csproj",
         "projectName": "ContactParserAPI",
-        "projectPath": "D:\\WillToLive-DataParser\\ContactParserAPI\\ContactParserAPI.csproj",
+        "projectPath": "D:\\WTLO-ContactParser\\ContactParserAPI\\ContactParserAPI.csproj",
         "packagesPath": "C:\\Users\\Marcos\\.nuget\\packages\\",
-        "outputPath": "D:\\WillToLive-DataParser\\ContactParserAPI\\obj\\",
+        "outputPath": "D:\\WTLO-ContactParser\\ContactParserAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

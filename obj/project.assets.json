@@ -67,11 +67,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\WillToLive-DataParser\\WillToLive-DataParser.csproj",
+      "projectUniqueName": "D:\\WTLO-ContactParser\\WillToLive-DataParser.csproj",
       "projectName": "WillToLive-DataParser",
-      "projectPath": "D:\\WillToLive-DataParser\\WillToLive-DataParser.csproj",
+      "projectPath": "D:\\WTLO-ContactParser\\WillToLive-DataParser.csproj",
       "packagesPath": "C:\\Users\\Marcos\\.nuget\\packages\\",
-      "outputPath": "D:\\WillToLive-DataParser\\obj\\",
+      "outputPath": "D:\\WTLO-ContactParser\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -92,8 +92,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\WillToLive-DataParser\\ContactParserAPI\\ContactParserAPI.csproj": {
-              "projectPath": "D:\\WillToLive-DataParser\\ContactParserAPI\\ContactParserAPI.csproj"
+            "D:\\WTLO-ContactParser\\ContactParserAPI\\ContactParserAPI.csproj": {
+              "projectPath": "D:\\WTLO-ContactParser\\ContactParserAPI\\ContactParserAPI.csproj"
             }
           }
         }
