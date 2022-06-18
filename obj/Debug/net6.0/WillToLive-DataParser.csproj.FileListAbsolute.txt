@@ -32,3 +32,5 @@ D:\WillToLive-DataParser\obj\Debug\net6.0\ref\WillToLive-DataParser.dll
 D:\WillToLive-DataParser\obj\Debug\net6.0\WillToLive-DataParser.pdb
 D:\WillToLive-DataParser\obj\Debug\net6.0\WillToLive-DataParser.genruntimeconfig.cache
 D:\WillToLive-DataParser\obj\Debug\net6.0\refint\WillToLive-DataParser.dll
+D:\WillToLive-DataParser\bin\Debug\net6.0\ContactParserAPI.dll
+D:\WillToLive-DataParser\bin\Debug\net6.0\ContactParserAPI.pdb

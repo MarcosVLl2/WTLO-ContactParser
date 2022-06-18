@@ -9,7 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ContactParserAPI\**" />
+    <EmbeddedResource Remove="ContactParserAPI\**" />
+    <None Remove="ContactParserAPI\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CsvHelper" Version="27.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="ContactParserAPI\ContactParserAPI.csproj" />
   </ItemGroup>
 
 </Project>

@@ -10,6 +10,16 @@
         "runtime": {
           "lib/net6.0/CsvHelper.dll": {}
         }
+      },
+      "ContactParserAPI/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ContactParserAPI.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ContactParserAPI.dll": {}
+        }
       }
     }
   },
@@ -37,10 +47,16 @@
         "lib/netstandard2.1/CsvHelper.dll",
         "lib/netstandard2.1/CsvHelper.xml"
       ]
+    },
+    "ContactParserAPI/1.0.0": {
+      "type": "project",
+      "path": "ContactParserAPI/ContactParserAPI.csproj",
+      "msbuildProject": "ContactParserAPI/ContactParserAPI.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "ContactParserAPI >= 1.0.0",
       "CsvHelper >= 27.2.1"
     ]
   },
@@ -75,7 +91,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\WillToLive-DataParser\\ContactParserAPI\\ContactParserAPI.csproj": {
+              "projectPath": "D:\\WillToLive-DataParser\\ContactParserAPI\\ContactParserAPI.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

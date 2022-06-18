@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "WillToLive-DataParser/1.0.0": {
         "dependencies": {
+          "ContactParserAPI": "1.0.0",
           "CsvHelper": "27.2.1"
         },
         "runtime": {
@@ -20,6 +21,11 @@
             "assemblyVersion": "27.0.0.0",
             "fileVersion": "27.2.1.0"
           }
+        }
+      },
+      "ContactParserAPI/1.0.0": {
+        "runtime": {
+          "ContactParserAPI.dll": {}
         }
       }
     }
@@ -36,6 +42,11 @@
       "sha512": "sha512-uS5ix5hL9gL5taiAG//CScyJa8Fn1ZOh3FDhDvf4laboESFs84mCNropfp7PIt8xCkyQofljFpqu1B5UnSXjyA==",
       "path": "csvhelper/27.2.1",
       "hashPath": "csvhelper.27.2.1.nupkg.sha512"
+    },
+    "ContactParserAPI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }
