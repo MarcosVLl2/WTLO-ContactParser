@@ -1,12 +1,11 @@
-﻿BinAnalyser analyser = new(FileOpener());
-
-Console.WriteLine("\n###################\nSelect Option\n1: Display File\n2: Parse and Export File (csv)\n3: Combine Files\n4: Exit\n###################\n");
+﻿Console.WriteLine("\n###################\nSelect Option\n1: Display File\n2: Parse and Export File (bin to csv)\n3: Import File (csv to bin)\n4: Combine Files\n5: Exit\n###################\n");
 Console.Write("Option: ");
 var key = Console.ReadKey();
 switch (key.Key)
 {
         case ConsoleKey.D1:
         {
+            BinAnalyser analyser = new(FileOpener());
             analyser.ReadFile();
             Console.Write("\n\nPrint in order of ID (Y/N)?");
             var k = Console.ReadKey().Key;
@@ -16,7 +15,7 @@ switch (key.Key)
             }
             else if(k != ConsoleKey.N)
             {
-                Console.WriteLine("Did not understand, will print in order or ID");
+                Console.WriteLine("Did not understand, will print in order or ID\n");
                 Thread.Sleep(1000);
                 analyser.charlist = analyser.charlist.OrderBy(x => x.GetTotalID()).ToList();
             }
@@ -33,6 +32,7 @@ switch (key.Key)
         }
         case ConsoleKey.D2:
         {
+            BinAnalyser analyser = new(FileOpener());
             analyser.ReadFile();
             StreamWriter csvfile = new(File.Create("list.csv"));
             csvfile.WriteLine("id,name,state,description");
@@ -50,6 +50,31 @@ switch (key.Key)
         case ConsoleKey.D3:
         {
             List<Character> charlist = new();
+            string[] csvfile = File.ReadAllLines(FileOpener());
+            csvfile = csvfile.Take(new Range(1, csvfile.Length)).ToArray();
+            charlist.Add(new Character(BitConverter.GetBytes(91097), "Friend", "MasterSheesh", 12, 0, null));
+            /*
+            foreach (string c in csvfile)
+            {
+                
+            }*/
+            /*
+            foreach (string c in analyser.charlist)
+            {
+                csvfile.WriteLine($"{c.GetTotalID()},{c.Name},{c.State},{c.Description}");
+            }
+            csvfile.Close();*/
+            WriteNewFriendList(charlist);
+            Console.WriteLine("\n");
+            Console.WriteLine("Finished");
+            Console.ReadKey();
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            break;
+        }
+        case ConsoleKey.D4:
+        {
+            List<Character> charlist = new();
+            BinAnalyser analyser = new(FileOpener());
             analyser.ReadFile();
             charlist = analyser.charlist;
 
@@ -64,18 +89,9 @@ switch (key.Key)
 
                 foreach (Character a in analyser.charlist)
                 {
-                    bool exists = false;
-                    foreach (Character b in charlist)
+                    Character? selectedchar = charlist.Find(x => x.GetTotalID() == a.GetTotalID());
+                    if (selectedchar != null)
                     {
-                        if (b.GetTotalID() == a.GetTotalID())
-                        {
-                            exists = true;
-                            break;
-                        }
-                    }
-                    if (exists)
-                    {
-                        Character? selectedchar = charlist.Find(x => x.GetTotalID() == a.GetTotalID());
                         newcharlist.Remove(a);
                         if (a.DescriptionCharacters > selectedchar.DescriptionCharacters)
                         {
@@ -106,7 +122,7 @@ switch (key.Key)
             }
             break;
         }
-        case ConsoleKey.D4:
+        case ConsoleKey.D5:
         {
             System.Diagnostics.Process.GetCurrentProcess().Kill();
             break;
@@ -115,6 +131,7 @@ switch (key.Key)
 
 string FileOpener()
 {
+    Console.WriteLine("\n");
     Console.Write("File: ");
     string f = Console.ReadLine();
     if (File.Exists(f))
@@ -175,7 +192,7 @@ class BinAnalyser
 {
     public List<Character> charlist = new();
     private readonly string file;
-    private byte[] bytelist = Array.Empty<byte>();
+    private readonly byte[] bytelist = Array.Empty<byte>();
     public BinAnalyser(string file)
     {
         this.file = file;
@@ -201,7 +218,7 @@ class BinAnalyser
         }
         return false;
     }
-    private Character ReadCharacter(byte[] file, int index, out int finalindex)
+    private static Character ReadCharacter(byte[] file, int index, out int finalindex)
     {
         // new character
         Character character = new();
@@ -242,7 +259,7 @@ class BinAnalyser
         }
 
         // extracts the amounts of letters the description is going to have (CRLF = Carriage Return/Line Feed count as two characters as its Carriage Return + Line Feed)
-        character.DescriptionCharacters = Convert.ToInt32(file[index]);
+        character.DescriptionCharacters = file[index];
         index += 4;
 
         // extracts the description of the character
@@ -266,16 +283,25 @@ class Character
     public string? State { get; set; } = "";
     public string? Name { get; set; } = "";
     public byte NameCharacters { get; set; } = 0;
-    public int DescriptionCharacters { get; set; } = 0;
+    public byte DescriptionCharacters { get; set; } = 0;
     public string? Description { get; set; } = "";
     public Character() { }
+    public Character(byte[] id, string? state, string? name, byte namechars, byte descchars, string? description)
+    {
+        ID = id;
+        State = state;
+        Name = name;
+        NameCharacters = namechars;
+        DescriptionCharacters = descchars;
+        Description = description;
+    }
     public int GetTotalID()
     {
         return ID[0] + ID[1] * 256 + ID[2] * 65536;
     }
     public override bool Equals(object? obj)
     {
-        Character charac = (Character)obj;
-        return charac.GetTotalID() == GetTotalID();
+        Character c = (Character)obj;
+        return c.GetTotalID() == GetTotalID();
     }
 }
