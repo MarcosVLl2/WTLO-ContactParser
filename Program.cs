@@ -26,49 +26,37 @@ switch (key.Key)
             {
                 Console.WriteLine($"ID: {c.ID} | Name: {c.Name} ({c.NameCharacters}) | Status: {c.State} | Description: {c.Description} ({c.DescriptionCharacters})");
             }
-            Console.WriteLine("\n");
-            Console.WriteLine("Finished");
+            Console.WriteLine("\n\nFinished");
             Console.ReadKey();
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            KillProcess();
             break;
         }
         case ConsoleKey.D2:
         {
             BinAnalyser analyser = new(FileOpener());
             analyser.ReadFile();
-            StreamWriter csvfile = new(File.Create("list.csv"));
-            csvfile.WriteLine("id,name,namechars,state,descriptionchars,description");
-            foreach (Character c in analyser.charlist)
-            {
-                csvfile.WriteLine($"{c.ID},{c.Name},{c.NameCharacters},{c.State},{c.Description},{c.DescriptionCharacters}");
-            }
-            csvfile.Close();
-            Console.WriteLine("\n");
-            Console.WriteLine("Finished");
+            var csvWriter = new CsvHelper.CsvWriter(new StreamWriter(File.Create("list.csv")), new CsvHelper.Configuration.CsvConfiguration(System.Globalization.CultureInfo.InvariantCulture)
+            { ShouldQuote = args => args.Row.Index == 1, Delimiter = ",", AllowComments = false });
+
+            csvWriter.WriteHeader<Character>();
+            csvWriter.NextRecord();
+            csvWriter.WriteRecords(analyser.charlist);
+            csvWriter.Flush(); csvWriter.Dispose();
+            Console.WriteLine("\n\nFinished");
             Console.ReadKey();
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            KillProcess();
             break;
         }
         case ConsoleKey.D3:
         {
             List<Character> charlist = new();
-            string[] csvfile = File.ReadAllLines(FileOpener());
-            csvfile = csvfile.Take(new Range(1, csvfile.Length)).ToArray();
-            int cont = 0;
+            var csvReader = new CsvHelper.CsvReader(File.OpenText(FileOpener()), new CsvHelper.Configuration.CsvConfiguration(System.Globalization.CultureInfo.InvariantCulture)
+            { ShouldQuote = args => args.Row.Index == 1, Delimiter = ",", AllowComments = false });
 
-            foreach (string c in csvfile)
-            {
-                cont++;
-                Character charac = new();
-                string[] data = c.Split(',');
-                charlist.Add(new Character(Convert.ToInt32(data[0]), data[1], Convert.ToByte(data[2]), data[3], data[4], Convert.ToByte(data[5])));
-                Console.WriteLine($"{cont} out of {csvfile.Length} parsed");
-            }
-            WriteNewFriendList(charlist);
-            Console.WriteLine("\n");
-            Console.WriteLine("Finished");
+            WriteNewFriendList(csvReader.GetRecords<Character>().ToList());
+            Console.WriteLine("\n\nFinished");
             Console.ReadKey();
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            KillProcess();
             break;
         }
         case ConsoleKey.D4:
@@ -115,25 +103,29 @@ switch (key.Key)
                 charlist = charlist.OrderBy(x => x.ID).ToList();
                 Console.WriteLine("\n");
                 WriteNewFriendList(charlist);
-                Console.WriteLine("\n");
-                Console.WriteLine("Finished");
+                Console.WriteLine("\n\nFinished");
                 Console.ReadKey();
-                System.Diagnostics.Process.GetCurrentProcess().Kill();
+                KillProcess();
             }
             break;
         }
         case ConsoleKey.D5:
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            
             break;
         }
+}
+
+void KillProcess()
+{
+    System.Diagnostics.Process.GetCurrentProcess().Kill();
 }
 
 string FileOpener()
 {
     Console.WriteLine("\n");
     Console.Write("File: ");
-    string f = Console.ReadLine();
+    string? f = Console.ReadLine();
     if (File.Exists(f))
     {
         return f;
@@ -145,8 +137,10 @@ string FileOpener()
 void WriteNewFriendList(List<Character> charlist)
 {
     BinaryWriter writer = new(File.OpenWrite("File.bin"), System.Text.Encoding.ASCII, false);
+    int cont = 0;
     foreach (Character character in charlist)
     {
+        cont++;
         switch (character.State)
         {
             case "Friend":
@@ -182,6 +176,7 @@ void WriteNewFriendList(List<Character> charlist)
                 writer.Write(bytes[1]);
             }
         }
+        WTLO_ContactParser.ConsoleUtility.WriteProgressBar((cont / charlist.Count) * 100, true);
     }
     writer.Close();
 }

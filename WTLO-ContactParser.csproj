@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>WillToLive_DataParser</RootNamespace>
+    <RootNamespace>WTLO_ContactPrser</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -12,6 +12,10 @@
     <Compile Remove="ContactParserAPI\**" />
     <EmbeddedResource Remove="ContactParserAPI\**" />
     <None Remove="ContactParserAPI\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="27.2.1" />
   </ItemGroup>
 
   <ItemGroup>

@@ -3,32 +3,30 @@
     public class BinAnalyser
     {
         public List<Character> charlist = new();
-        private readonly string file;
         private readonly byte[] bytelist = Array.Empty<byte>();
         public BinAnalyser(string file)
         {
-            this.file = file;
             bytelist = File.ReadAllBytes(file);
         }
         // Reads the file and puts all data into charlist
         public bool ReadFile()
         {
-            if (File.Exists(file))
+            int index = 0;
+            while (true)
             {
-                int index = 0;
-                while (true)
+                try
                 {
-                    try
-                    {
-                        charlist.Add(ReadCharacter(bytelist, index, out index));
-                    }
-                    catch (IndexOutOfRangeException)
-                    {
-                        return true;
-                    }
+                    charlist.Add(ReadCharacter(bytelist, index, out index));
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
                 }
             }
-            return false;
         }
         private static Character ReadCharacter(byte[] file, int index, out int finalindex)
         {

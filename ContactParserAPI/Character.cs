@@ -11,7 +11,7 @@ namespace ContactParserAPI
         public byte DescriptionCharacters { get; set; } = 0;
         public string? Description { get; set; } = "";
         public Character() { }
-        public Character(int id, string? name, byte namechars, string? state, string? description, byte descchars)
+        public Character(int id, string? state, string? name, byte namechars, byte descchars, string? description)
         {
             this.ID = id;
             this.State = state;
@@ -22,7 +22,7 @@ namespace ContactParserAPI
         }
         public void SetByteID(byte[] id)
         {
-            this.ID = id[0] + id[1] * 256 + id[2] * 65536;
+            ID = id[0] + id[1] * 256 + id[2] * 65536;
         }
         public byte[] GetByteID()
         {
@@ -30,8 +30,17 @@ namespace ContactParserAPI
         }
         public override bool Equals(object? obj)
         {
-            Character c = (Character)obj;
-            return c.ID == this.ID;
+            try
+            {
+                Character? c = (Character?)obj;
+                return c?.ID == ID;
+            }
+            catch (NullReferenceException n_ex) { throw n_ex; }
+            catch (Exception) { throw; }
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }
