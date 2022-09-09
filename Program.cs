@@ -36,7 +36,10 @@ switch (key.Key)
             BinAnalyser analyser = new(FileOpener());
             analyser.ReadFile();
             var csvWriter = new CsvHelper.CsvWriter(new StreamWriter(File.Create("list.csv")), new CsvHelper.Configuration.CsvConfiguration(System.Globalization.CultureInfo.InvariantCulture)
-            { ShouldQuote = args => args.Row.Index == 1, Delimiter = ",", AllowComments = false });
+            { 
+                Delimiter = ",",
+                AllowComments = false 
+            });
 
             csvWriter.WriteHeader<Character>();
             csvWriter.NextRecord();

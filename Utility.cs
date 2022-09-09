@@ -10,7 +10,7 @@ namespace WTLO_ContactParser
     {
         const char _block = '■';
         const string _back = "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b";
-        const string _twirl = "-\\|/";
+        const string _twirl = "-\\|/-";
         public static void WriteProgressBar(int percent, bool update = false)
         {
             if (update)
