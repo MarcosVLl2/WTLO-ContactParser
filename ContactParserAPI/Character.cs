@@ -16,7 +16,7 @@ namespace ContactParserAPI
             this.ID = id;
             this.State = state;
             this.Name = name;
-            this.NameCharacters = namechars;
+            this.NameCharacters = (string.IsNullOrEmpty(name)) ? this.NameCharacters = 0 : this.NameCharacters = (byte)Name.Length;
             this.DescriptionCharacters = descchars;
             this.Description = description;
         }

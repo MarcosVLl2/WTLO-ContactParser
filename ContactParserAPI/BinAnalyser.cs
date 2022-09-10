@@ -22,10 +22,6 @@
                 {
                     return true;
                 }
-                catch (Exception)
-                {
-                    return false;
-                }
             }
         }
         private static Character ReadCharacter(byte[] file, int index, out int finalindex)
@@ -67,7 +63,6 @@
             // extracts the amounts of letters the description is going to have (CRLF = Carriage Return/Line Feed count as two characters as its Carriage Return + Line Feed)
             character.DescriptionCharacters = file[index];
             index += 4;
-
             // extracts the description of the character
             if (character.DescriptionCharacters != 0)
             {
